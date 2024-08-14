@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  tm_service:
+    container_name: tm_service_cont
+    image: tm_service_image
+    restart: always
+    build: ./
+    volumes:
+      - ~/tlexi/tmservice:/fastapi
+      - /block1/files:/files
+      # - /Users/keonlee/dev_home/knb/Tlexibeta-TM:/fastapi
+      # - /Users/keonlee/dev_home/knb/files:/files
+    ports:
+      - "8001:8001"
+    tty: true
+    # command: ls
+    command: nohup ./my_shellscript.sh &
+    # networks:
+    #   - release
+    # command: uvicorn main:app --port 8000 --reload --host 0.0.0.0
+
+  # nginx:
+  #   container_name: nginx
+
+# networks:
+#   release:
+#     driver: bridge

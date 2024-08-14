@@ -1,0 +1,1 @@
+uvicorn main:app --port 8001 --reload --host 0.0.0.0 --env-file ./.env_prod
